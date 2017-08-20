@@ -141,7 +141,7 @@ public class ExternalShuffleClient extends ShuffleClient {
     TransportClient client = clientFactory.createUnmanagedClient(host, port);
     try {
       ByteBuffer registerMessage = new RegisterExecutor(appId, execId, executorInfo).toByteBuffer();
-      client.sendRpcSync(registerMessage, 5000 /* timeoutMs */);
+      client.sendRpcSync(registerMessage, 1200000 /* timeoutMs */);
     } finally {
       client.close();
     }
